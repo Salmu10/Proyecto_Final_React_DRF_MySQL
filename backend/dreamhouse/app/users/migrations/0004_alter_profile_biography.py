@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='profile',
             name='biography',
-            field=models.CharField(blank=True, default="Hello, I'm a scoonti user", max_length=100),
+            field=models.CharField(blank=True, default="Hello, I'm a dreamhouse user", max_length=100),
         ),
     ]

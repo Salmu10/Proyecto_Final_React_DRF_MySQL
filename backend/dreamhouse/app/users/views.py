@@ -3,9 +3,8 @@ from rest_framework import viewsets
 from .serializers import userSerializer
 from .models import User, Profile
 from .serializers import ProfileSerializer
-from scoonti.app.stations.serializers import ScooterSerializer
 from rest_framework.permissions import (AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser)
-from scoonti.app.core.permissions import IsAdmin
+from dreamhouse.app.core.permissions import IsAdmin
 
 class UserView(viewsets.GenericViewSet):
     permission_classes = (AllowAny,)
@@ -48,12 +47,6 @@ class UserInfoView(viewsets.GenericViewSet):
         serializer = userSerializer.refreshToken(serializer_context)
         return Response(serializer)
 
-    def getUserScooter(self, request):
-        username = request.user
-        serializer_context = { 'username': username }
-        serializer = ScooterSerializer.getUserScooter(context=serializer_context)
-        return Response(ScooterSerializer.to_Scooter(serializer))
-
     def logout(self, request):
         return Response()
 
@@ -84,8 +77,3 @@ class ProfileView(viewsets.GenericViewSet):
         data_profile = request.data.get('profile')
         serializer_profile = ProfileSerializer.update(current_user=current_user, user_context=data_user, profile_context=data_profile)
         return Response(serializer_profile)
-  
-    def getStats(self, request, id):
-        current_user = request.user
-        serializer = ProfileSerializer.getStats(current_user=current_user, id=id)
-        return Response(serializer)

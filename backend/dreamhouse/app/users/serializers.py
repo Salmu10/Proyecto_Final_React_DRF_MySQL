@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from .models import User
 from .models import Profile
-from scoonti.app.rent.models import Rent
-from scoonti.app.stations.models import Scooter
 
 class userSerializer(serializers.ModelSerializer):
     class Meta:
@@ -115,7 +113,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             name="", 
             surnames="",
             image="https://avatars.dicebear.com/api/adventurer/" + context['username'] + ".svg",
-            biography="Hello, I'm a scoonti user")
+            biography="Hello, I'm a dreamhouse user")
 
         profile.save()
         return profile
@@ -180,15 +178,3 @@ class ProfileSerializer(serializers.ModelSerializer):
             'token': newUser.token,
             'ref_token': newUser.ref_token,
         }
-
-    def getStats(current_user, id):
-        user = User.objects.get(pk=id)
-
-        if user is None:
-            raise serializers.ValidationError('User not found')
-
-        if user != current_user:
-            raise serializers.ValidationError('Invalid access')
-            
-        total_stats = len(Rent.objects.filter(user_id=id))
-        return total_stats

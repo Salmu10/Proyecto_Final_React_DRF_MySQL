@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('surnames', models.CharField(max_length=100)),
                 ('image', models.CharField(blank=True, default='https://avatars.dicebear.com/api/adventurer/default.svg', max_length=100)),
-                ('biography', models.CharField(blank=True, default='Hello im a scoonti user', max_length=100)),
+                ('biography', models.CharField(blank=True, default='Hello im a dreamhouse user', max_length=100)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
             ],
         ),

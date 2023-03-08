@@ -1,7 +1,7 @@
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from .models import User
-from scoonti.app.core.utils import generate_uuid
+from dreamhouse.app.core.utils import generate_uuid
 
 @receiver(pre_save, sender=User)
 

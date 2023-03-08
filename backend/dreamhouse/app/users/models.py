@@ -51,7 +51,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=100)
     surnames = models.CharField(max_length=100)
     image = models.CharField(max_length=100,blank=True, default="https://avatars.dicebear.com/api/adventurer/default.svg")
-    biography = models.CharField(max_length=100,blank=True, default="Hello, I'm a scoonti user")
+    biography = models.CharField(max_length=100,blank=True, default="Hello, I'm a dreamhouse user")
 
     def __str__(self):
         return self.id
