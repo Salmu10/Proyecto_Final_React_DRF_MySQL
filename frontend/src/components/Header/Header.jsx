@@ -26,7 +26,7 @@ export default function Header () {
     const isUsername = isAuth ? <li className="link nav-link position-relative" onClick={() => redirects.profile(user.id)}>{user.username}</li>
     : <li className="link nav-link" onClick={() => redirects.login()}>Sign in</li>;
 
-    // const isAdminUser = isAdmin ? <a className="link nav-link" onClick={() => redirects.dashboard()}>Dashboard</a> : '';
+    const isAdminUser = isAdmin ? <a className="link nav-link" onClick={() => redirects.dashboard()}>Dashboard</a> : '';
 
     return (
         <header>
@@ -41,9 +41,8 @@ export default function Header () {
                     <div className="navbar_list collapse navbar-collapse" id="headerNav">
                         <ul className="nav_list navbar-nav">
                             <li className="link nav-link" onClick={() => redirects.home()}>Home</li>
-                            <li className="link nav-link" onClick={() => redirects.dashboard()}>Dashboard</li>
                             {/* <li className="link nav-link" onClick={() => redirects.rent()}>Rent</li> */}
-                            {/* {isAdminUser}*/}
+                            {isAdminUser}
                             {isUsername}
                             {isUser} 
                         </ul>

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'dreamhouse.app.houses',
     'dreamhouse.app.users',
 ]
 

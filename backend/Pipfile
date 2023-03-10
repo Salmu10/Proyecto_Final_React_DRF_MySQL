@@ -12,6 +12,7 @@ djangorestframework-jwt = "*"
 numpy = "*"
 pyjwt = "==v1.7.1"
 django-environ = "*"
+pymysql = "*"
 
 [dev-packages]
 
